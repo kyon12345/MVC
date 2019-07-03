@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Yon.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Movie</h2>
+@if (!Model.Any())
+{
+    <p>we don't have any movie</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Name, "Detail", "Movies", new { id = movie.Id }, null)</td>
+                    <td>@movie.Genre.Name</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+}
