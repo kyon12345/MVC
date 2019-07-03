@@ -16,5 +16,6 @@ namespace Yon.Models
         public bool IsSubscribedToNewsletter { get; set; }
         public MemberShipType MemberShipType { get; set; }
         public byte MemberShipTypeId { get; set; }
+        public DateTime? Birthday { get; set; }
     }
 }

@@ -202,6 +202,14 @@
     <Compile Include="Migrations\201907030409444_PropgateDataNameToMemberShipType.Designer.cs">
       <DependentUpon>201907030409444_PropgateDataNameToMemberShipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907030543060_AddBirthdatToCustomer.cs" />
+    <Compile Include="Migrations\201907030543060_AddBirthdatToCustomer.Designer.cs">
+      <DependentUpon>201907030543060_AddBirthdatToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907030547131_ModifyPropertyOfBirthday.cs" />
+    <Compile Include="Migrations\201907030547131_ModifyPropertyOfBirthday.Designer.cs">
+      <DependentUpon>201907030547131_ModifyPropertyOfBirthday.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -310,6 +318,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907030409444_PropgateDataNameToMemberShipType.resx">
       <DependentUpon>201907030409444_PropgateDataNameToMemberShipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907030543060_AddBirthdatToCustomer.resx">
+      <DependentUpon>201907030543060_AddBirthdatToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907030547131_ModifyPropertyOfBirthday.resx">
+      <DependentUpon>201907030547131_ModifyPropertyOfBirthday.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
