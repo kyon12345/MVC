@@ -38,14 +38,25 @@ namespace Yon.Controllers
             var MemberShipTypes = _context.MemberShipTypes;
             var NewCustomerViewModel = new CustomerFormViewModel
             {
+                Customer=new Customer(),
                 MemberShipTypes = MemberShipTypes
             };
             return View("CustomerForm",NewCustomerViewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if(!ModelState.IsValid)
+            {
+                CustomerFormViewModel customerViewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MemberShipTypes = _context.MemberShipTypes.ToList()
+                };
+                return View("CustomerForm",customerViewModel);
+            }
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else
