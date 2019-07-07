@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Yon.Models;
 using System.Data.Entity;
+using Yon.ViewModels;
 
 namespace Yon.Controllers
 {
@@ -31,6 +32,35 @@ namespace Yon.Controllers
             if (movie == null)
                 return HttpNotFound();
             return View(movie);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            IEnumerable<Genre> genres = _context.Genres.ToList();
+            MovieFormViewModel MovieViewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+            if (id != 0)
+                MovieViewModel.Movie = _context.Movies.Single(m => m.Id == id);
+            return View("MovieForm", MovieViewModel);
+        }
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+                _context.Movies.Add(movie);
+            else
+            {
+                var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.DateReleased = movie.DateReleased;
+                movieInDb.DateAdded = movie.DateAdded;
+                movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.GenreId = movie.GenreId;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
         }
     }
 }
