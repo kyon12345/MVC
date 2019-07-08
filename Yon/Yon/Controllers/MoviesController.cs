@@ -46,8 +46,18 @@ namespace Yon.Controllers
             return View("MovieForm", MovieViewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if(!ModelState.IsValid)
+            {
+                var movieViewModel = new MovieFormViewModel
+                {
+                    Genres = _context.Genres.ToList(),
+                    Movie = movie
+                };
+                return View("MovieForm",movieViewModel);
+            }
             if (movie.Id == 0)
                 _context.Movies.Add(movie);
             else
