@@ -34,16 +34,28 @@ namespace Yon.Controllers
             return View(movie);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult New()
         {
-            IEnumerable<Genre> genres = _context.Genres.ToList();
-            MovieFormViewModel MovieViewModel = new MovieFormViewModel
+            var genres = _context.Genres.ToList();
+
+            var viewModel = new MovieFormViewModel
             {
                 Genres = genres
             };
-            if (id != 0)
-                MovieViewModel.Movie = _context.Movies.Single(m => m.Id == id);
-            return View("MovieForm", MovieViewModel);
+
+            return View("MovieForm", viewModel);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+            if (movie == null)
+                return HttpNotFound();
+            var viewModel = new MovieFormViewModel(movie)
+            {
+                Genres = _context.Genres.ToList()
+            };
+            return View("MovieForm", viewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -51,10 +63,9 @@ namespace Yon.Controllers
         {
             if(!ModelState.IsValid)
             {
-                var movieViewModel = new MovieFormViewModel
+                var movieViewModel = new MovieFormViewModel(movie)
                 {
                     Genres = _context.Genres.ToList(),
-                    Movie = movie
                 };
                 return View("MovieForm",movieViewModel);
             }
