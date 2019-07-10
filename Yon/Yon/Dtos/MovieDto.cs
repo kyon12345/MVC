@@ -14,7 +14,7 @@ namespace Yon.Dtos
         public string Name { get; set; }
 
 
-     
+        public GenreDto genre { get; set; }
 
         [Required]
         public byte GenreId { get; set; }

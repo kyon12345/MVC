@@ -16,6 +16,8 @@ namespace Yon.App_Start
             Mapper.CreateMap<Customer, CustomerDto>();
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MemberShipType, MemberShipTypeDto>();
+            Mapper.CreateMap<Genre, GenreDto>();
+            
 
 
             // Dto to Domain
