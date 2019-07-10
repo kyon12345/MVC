@@ -15,6 +15,8 @@ namespace Yon.Dtos
         [StringLength(255)]
         public string Name { get; set; }
 
+        public MemberShipTypeDto MemberShipType { get; set; }
+
         public bool IsSubscribedToNewsletter { get; set; }
 
 

@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Yon.Dtos;
 using Yon.Models;
+using System.Data.Entity;
 
 namespace Yon.Controllers.Api
 {
@@ -22,7 +23,8 @@ namespace Yon.Controllers.Api
         // GET /api/customers
         public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
+            return _context.Customers.
+                Include(m=>m.MemberShipType).ToList().Select(Mapper.Map<Customer,CustomerDto>);
         }
 
         public IHttpActionResult GetCustomers(int id)
