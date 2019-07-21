@@ -8,6 +8,10 @@ namespace Yon.Models
         [Required]
         [Display(Name = "电子邮件")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "驾照")]
+        public string DrivingLicense { get; set; }
     }
 
     public class ExternalLoginListViewModel

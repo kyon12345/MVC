@@ -55,14 +55,14 @@ namespace Yon
             //   consumerSecret: "");
 
             //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //   appId: "319843535589649",
+            //   appSecret: "a43da08604883ea494cd58165619ba3c");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "399213240286-ri23gvd9r1cbipsnjdeksjavfuakokdf.apps.googleusercontent.com",
+                ClientSecret = "AQSWGigOtbeBJqNTuP-Vd32y"
+            });
         }
     }
 }
