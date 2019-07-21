@@ -12,6 +12,11 @@ namespace Yon.Models
         [Required]
         [Display(Name = "驾照")]
         public string DrivingLicense { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name ="手机")]
+        public string Phone { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -87,6 +92,10 @@ namespace Yon.Models
         [Display(Name = "确认密码")]
         [Compare("Password", ErrorMessage = "密码和确认密码不匹配。")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Phone { get; set; }
     }
 
     public class ResetPasswordViewModel
