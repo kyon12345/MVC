@@ -14,6 +14,7 @@ namespace Yon
                         "~/scripts/bootbox.js",
                         "~/scripts/datatables/jquery.datatables.js",
                         "~/scripts/datatables/datatables.bootstrap.js",
+                        "~/scripts/toastr.js",
                         "~/scripts/typeahead.bundle.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -29,6 +30,7 @@ namespace Yon
                       "~/Content/bootstrap-lumen.css",
                       "~/content/datatables/css/datatables.bootstrap.css",
                       "~/content/typehead.css",
+                      "~/content/toastr.css",
                       "~/Content/site.css"));
         }
     }
